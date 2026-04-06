@@ -21,7 +21,11 @@ ALLOWED_ORIGINS = os.getenv("ALLOWED_ORIGINS", "http://localhost:3000,http://127
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=ALLOWED_ORIGINS + ["https://travelmind-ko2zacifc-danhdais-projects.vercel.app", "https://travelmind.vercel.app"],
+    allow_origins=ALLOWED_ORIGINS + [
+        "https://travelmind.vercel.app",
+        "https://travelmind-ko2zacifc-danhdais-projects.vercel.app",
+        "https://travelmind-danhdais-projects.vercel.app",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
