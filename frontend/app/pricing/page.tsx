@@ -1,0 +1,124 @@
+const tiers = [
+  {
+    id: "free",
+    name: "Free",
+    price: "0",
+    period: "",
+    popular: false,
+    features: [
+      "Xem review (5 dia diem/thang)",
+      "Travel DNA basic",
+      "Lich trinh outline",
+    ],
+    cta: "Bat dau mien phi",
+    href: "/itinerary",
+  },
+  {
+    id: "explorer",
+    name: "Explorer",
+    price: "199k",
+    period: "/lich trinh",
+    popular: false,
+    features: [
+      "Lich trinh day-by-day chi tiet",
+      "Review khong gioi han",
+      "Budget breakdown",
+      "Interactive map",
+      "1 lan chinh sua AI",
+    ],
+    cta: "Chon Explorer",
+    href: "/itinerary",
+  },
+  {
+    id: "premium",
+    name: "Premium",
+    price: "599k",
+    period: "/lich trinh",
+    popular: true,
+    features: [
+      "Tat ca Explorer features",
+      "AI Concierge 24/7",
+      "Group planning (10 nguoi)",
+      "Plan B cho moi activity",
+      "Unlimited chinh sua",
+      "Priority booking",
+    ],
+    cta: "Chon Premium",
+    href: "/itinerary",
+  },
+  {
+    id: "vip",
+    name: "VIP",
+    price: "1.5-3tr",
+    period: "",
+    popular: false,
+    features: [
+      "Tat ca Premium features",
+      "Human expert review",
+      "Concierge call",
+      "Emergency support",
+      "Group lon, honeymoon, gia dinh",
+    ],
+    cta: "Lien he",
+    href: "/itinerary",
+  },
+];
+
+export default function PricingPage() {
+  return (
+    <div className="max-w-6xl mx-auto px-4 py-12">
+      <div className="text-center mb-12">
+        <h1 className="text-3xl font-bold mb-2">Bang gia TravelMind</h1>
+        <p className="text-gray-500">
+          Chon goi phu hop — tu mien phi den VIP
+        </p>
+      </div>
+
+      <div className="grid md:grid-cols-4 gap-6">
+        {tiers.map((tier) => (
+          <div
+            key={tier.id}
+            className={`rounded-2xl border-2 p-6 flex flex-col ${
+              tier.popular
+                ? "border-sky-500 shadow-lg shadow-sky-100 relative"
+                : "border-gray-200"
+            }`}
+          >
+            {tier.popular && (
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-sky-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                Pho bien
+              </div>
+            )}
+            <h3 className="text-xl font-bold">{tier.name}</h3>
+            <div className="mt-3 mb-4">
+              <span className="text-3xl font-bold">{tier.price}</span>
+              <span className="text-gray-500 text-sm"> VND{tier.period}</span>
+            </div>
+            <ul className="space-y-2 flex-1 mb-6">
+              {tier.features.map((f) => (
+                <li key={f} className="flex items-start gap-2 text-sm text-gray-600">
+                  <span className="text-green-500 mt-0.5">✓</span>
+                  {f}
+                </li>
+              ))}
+            </ul>
+            <a
+              href={tier.href}
+              className={`block text-center py-3 rounded-xl font-medium transition ${
+                tier.popular
+                  ? "bg-sky-600 text-white hover:bg-sky-700"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+              }`}
+            >
+              {tier.cta}
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-12 text-center text-gray-400 text-sm">
+        + Revenue tu booking commission: 5-15% moi booking qua app
+      </div>
+    </div>
+  );
+}
