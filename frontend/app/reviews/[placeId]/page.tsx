@@ -48,7 +48,7 @@ export default function PlaceReviewsPage() {
     );
   }
 
-  if (!data) return <div className="text-center py-32 text-gray-500">Khong tim thay</div>;
+  if (!data) return <div className="text-center py-32 text-gray-500">Không tìm thấy</div>;
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
@@ -67,7 +67,7 @@ export default function PlaceReviewsPage() {
         />
       </div>
 
-      <h2 className="font-semibold text-lg mb-4">Chi tiet reviews</h2>
+      <h2 className="font-semibold text-lg mb-4">Chi tiết reviews</h2>
       <div className="space-y-4">
         {data.analysis.map((rev) => (
           <div
@@ -110,7 +110,7 @@ export default function PlaceReviewsPage() {
             {/* Entities */}
             {rev.entities.prices.length > 0 && (
               <div className="text-[10px] text-gray-500">
-                Gia: {rev.entities.prices.map((p) => p.raw).join(", ")}
+                Giá: {rev.entities.prices.map((p) => p.raw).join(", ")}
               </div>
             )}
 

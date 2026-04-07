@@ -4,25 +4,25 @@ import { useState } from "react";
 import { saveTravelDNA } from "@/lib/api";
 
 const PERSONAS = [
-  { id: "phuot", label: "Phuot thu", icon: "🏔" },
-  { id: "nghi_duong", label: "Nghi duong", icon: "🏖" },
-  { id: "am_thuc", label: "Am thuc", icon: "🍜" },
-  { id: "van_hoa", label: "Van hoa", icon: "🏛" },
-  { id: "gia_dinh", label: "Gia dinh", icon: "👨‍👩‍👧‍👦" },
+  { id: "phuot", label: "Phượt thủ", icon: "🏔" },
+  { id: "nghi_duong", label: "Nghỉ dưỡng", icon: "🏖" },
+  { id: "am_thuc", label: "Ẩm thực", icon: "🍜" },
+  { id: "van_hoa", label: "Văn hóa", icon: "🏛" },
+  { id: "gia_dinh", label: "Gia đình", icon: "👨‍👩‍👧‍👦" },
   { id: "couple", label: "Couple romantic", icon: "💑" },
 ];
 
 const BUDGETS = [
-  { id: "low", label: "Tiet kiem (<500k/ngay)", icon: "💰" },
-  { id: "medium", label: "Trung binh (500k-1tr/ngay)", icon: "💰💰" },
-  { id: "high", label: "Thoai mai (1-2tr/ngay)", icon: "💰💰💰" },
-  { id: "luxury", label: "Sang chanh (>2tr/ngay)", icon: "💎" },
+  { id: "low", label: "Tiết kiệm (<500k/ngày)", icon: "💰" },
+  { id: "medium", label: "Trung bình (500k-1tr/ngày)", icon: "💰💰" },
+  { id: "high", label: "Thoải mái (1-2tr/ngày)", icon: "💰💰💰" },
+  { id: "luxury", label: "Sang chảnh (>2tr/ngày)", icon: "💎" },
 ];
 
 const ENERGY = [
-  { id: "chill", label: "Chill — 1-2 hoat dong/ngay", icon: "😌" },
-  { id: "moderate", label: "Vua phai — 3-4 hoat dong/ngay", icon: "🚶" },
-  { id: "compact", label: "Compact — 5+ hoat dong/ngay", icon: "🏃" },
+  { id: "chill", label: "Chill — 1-2 hoạt động/ngày", icon: "😌" },
+  { id: "moderate", label: "Vừa phải — 3-4 hoạt động/ngày", icon: "🚶" },
+  { id: "compact", label: "Compact — 5+ hoạt động/ngày", icon: "🏃" },
 ];
 
 const FOODS = [
@@ -30,8 +30,8 @@ const FOODS = [
   { id: "fine_dining", label: "Fine dining" },
   { id: "healthy", label: "Healthy" },
   { id: "vegetarian", label: "Chay" },
-  { id: "seafood", label: "Hai san" },
-  { id: "local", label: "Dac san dia phuong" },
+  { id: "seafood", label: "Hải sản" },
+  { id: "local", label: "Đặc sản địa phương" },
 ];
 
 const ACCOMMODATIONS = [
@@ -43,12 +43,12 @@ const ACCOMMODATIONS = [
 ];
 
 const DEAL_BREAKERS = [
-  { id: "fear_heights", label: "So do cao" },
-  { id: "no_crowds", label: "Khong thich dong nguoi" },
-  { id: "allergies", label: "Di ung thuc an" },
-  { id: "kids", label: "Tre nho di cung" },
-  { id: "elderly", label: "Nguoi gia di cung" },
-  { id: "no_swim", label: "Khong biet boi" },
+  { id: "fear_heights", label: "Sợ độ cao" },
+  { id: "no_crowds", label: "Không thích đông người" },
+  { id: "allergies", label: "Dị ứng thức ăn" },
+  { id: "kids", label: "Trẻ nhỏ đi cùng" },
+  { id: "elderly", label: "Người già đi cùng" },
+  { id: "no_swim", label: "Không biết bơi" },
 ];
 
 type Step = 1 | 2 | 3 | 4 | 5 | 6;
@@ -93,10 +93,10 @@ export default function TravelDNAForm() {
     return (
       <div className="text-center py-12">
         <div className="text-5xl mb-4">🧬</div>
-        <h2 className="text-2xl font-bold mb-2">Travel DNA da luu!</h2>
-        <p className="text-gray-600 mb-6">AI se dung profile nay de thiet ke lich trinh rieng cho ban.</p>
+        <h2 className="text-2xl font-bold mb-2">Travel DNA đã lưu!</h2>
+        <p className="text-gray-600 mb-6">AI sẽ dùng profile này để thiết kế lịch trình riêng cho bạn.</p>
         <a href="/itinerary" className="inline-block bg-sky-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-sky-700 transition">
-          Tao lich trinh ngay
+          Tạo lịch trình ngay
         </a>
       </div>
     );
@@ -113,8 +113,8 @@ export default function TravelDNAForm() {
 
       {step === 1 && (
         <div>
-          <h2 className="text-2xl font-bold mb-2">Ban la kieu du lich nao?</h2>
-          <p className="text-gray-500 mb-6">Chon persona phu hop nhat voi ban</p>
+          <h2 className="text-2xl font-bold mb-2">Bạn là kiểu du lịch nào?</h2>
+          <p className="text-gray-500 mb-6">Chọn persona phù hợp nhất với bạn</p>
           <div className="grid grid-cols-2 gap-3">
             {PERSONAS.map((p) => (
               <button key={p.id} onClick={() => setPersona(p.id)}
@@ -129,8 +129,8 @@ export default function TravelDNAForm() {
 
       {step === 2 && (
         <div>
-          <h2 className="text-2xl font-bold mb-2">Ngan sach cua ban?</h2>
-          <p className="text-gray-500 mb-6">Muc chi tieu trung binh moi ngay</p>
+          <h2 className="text-2xl font-bold mb-2">Ngân sách của bạn?</h2>
+          <p className="text-gray-500 mb-6">Mức chi tiêu trung bình mỗi ngày</p>
           <div className="grid grid-cols-1 gap-3">
             {BUDGETS.map((b) => (
               <button key={b.id} onClick={() => setBudget(b.id)}
@@ -145,8 +145,8 @@ export default function TravelDNAForm() {
 
       {step === 3 && (
         <div>
-          <h2 className="text-2xl font-bold mb-2">Muc nang luong?</h2>
-          <p className="text-gray-500 mb-6">Lich trinh compact hay chill?</p>
+          <h2 className="text-2xl font-bold mb-2">Mức năng lượng?</h2>
+          <p className="text-gray-500 mb-6">Lịch trình compact hay chill?</p>
           <div className="grid grid-cols-1 gap-3">
             {ENERGY.map((e) => (
               <button key={e.id} onClick={() => setEnergy(e.id)}
@@ -161,8 +161,8 @@ export default function TravelDNAForm() {
 
       {step === 4 && (
         <div>
-          <h2 className="text-2xl font-bold mb-2">So thich am thuc?</h2>
-          <p className="text-gray-500 mb-6">Chon nhieu tuy thich</p>
+          <h2 className="text-2xl font-bold mb-2">Sở thích ẩm thực?</h2>
+          <p className="text-gray-500 mb-6">Chọn nhiều tùy thích</p>
           <div className="grid grid-cols-2 gap-3">
             {FOODS.map((f) => (
               <button key={f.id} onClick={() => toggleItem(foods, f.id, setFoods)}
@@ -176,8 +176,8 @@ export default function TravelDNAForm() {
 
       {step === 5 && (
         <div>
-          <h2 className="text-2xl font-bold mb-2">Cho o yeu thich?</h2>
-          <p className="text-gray-500 mb-6">Ban thich o dau khi di du lich?</p>
+          <h2 className="text-2xl font-bold mb-2">Chỗ ở yêu thích?</h2>
+          <p className="text-gray-500 mb-6">Bạn thích ở đâu khi đi du lịch?</p>
           <div className="grid grid-cols-2 gap-3">
             {ACCOMMODATIONS.map((a) => (
               <button key={a.id} onClick={() => setAccommodation(a.id)}
@@ -193,7 +193,7 @@ export default function TravelDNAForm() {
       {step === 6 && (
         <div>
           <h2 className="text-2xl font-bold mb-2">Deal breakers?</h2>
-          <p className="text-gray-500 mb-6">Co dieu gi can tranh khong? (tuy chon)</p>
+          <p className="text-gray-500 mb-6">Có điều gì cần tránh không? (tùy chọn)</p>
           <div className="grid grid-cols-2 gap-3 mb-6">
             {DEAL_BREAKERS.map((d) => (
               <button key={d.id} onClick={() => toggleItem(dealBreakers, d.id, setDealBreakers)}
@@ -203,7 +203,7 @@ export default function TravelDNAForm() {
             ))}
           </div>
           <div className="mt-6">
-            <label className="block text-sm font-medium text-gray-700 mb-2">Email cua ban</label>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Email của bạn</label>
             <input type="email" required value={email} onChange={(e) => setEmail(e.target.value)}
               placeholder="email@example.com"
               className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-sky-500 focus:ring-2 focus:ring-sky-200 outline-none" />
@@ -215,17 +215,17 @@ export default function TravelDNAForm() {
       <div className="flex justify-between mt-8">
         <button onClick={() => setStep((s) => Math.max(1, s - 1) as Step)} disabled={step === 1}
           className="px-6 py-3 rounded-lg border border-gray-300 font-medium disabled:opacity-30 hover:bg-gray-50 transition">
-          Quay lai
+          Quay lại
         </button>
         {step < 6 ? (
           <button onClick={() => setStep((s) => Math.min(6, s + 1) as Step)}
             className="px-6 py-3 rounded-lg bg-sky-600 text-white font-medium hover:bg-sky-700 transition">
-            Tiep theo
+            Tiếp theo
           </button>
         ) : (
           <button onClick={handleSubmit} disabled={!email || status === "loading"}
             className="px-6 py-3 rounded-lg bg-orange-500 text-white font-medium hover:bg-orange-600 disabled:opacity-50 transition">
-            {status === "loading" ? "Dang luu..." : "Luu Travel DNA"}
+            {status === "loading" ? "Đang lưu..." : "Lưu Travel DNA"}
           </button>
         )}
       </div>

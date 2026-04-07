@@ -6,44 +6,44 @@ const tiers = [
     period: "",
     popular: false,
     features: [
-      "Xem review (5 dia diem/thang)",
+      "Xem review (5 địa điểm/tháng)",
       "Travel DNA basic",
-      "Lich trinh outline",
+      "Lịch trình outline",
     ],
-    cta: "Bat dau mien phi",
+    cta: "Bắt đầu miễn phí",
     href: "/itinerary",
   },
   {
     id: "explorer",
     name: "Explorer",
     price: "199k",
-    period: "/lich trinh",
+    period: "/lịch trình",
     popular: false,
     features: [
-      "Lich trinh day-by-day chi tiet",
-      "Review khong gioi han",
+      "Lịch trình day-by-day chi tiết",
+      "Review không giới hạn",
       "Budget breakdown",
       "Interactive map",
-      "1 lan chinh sua AI",
+      "1 lần chỉnh sửa AI",
     ],
-    cta: "Chon Explorer",
+    cta: "Chọn Explorer",
     href: "/itinerary",
   },
   {
     id: "premium",
     name: "Premium",
     price: "599k",
-    period: "/lich trinh",
+    period: "/lịch trình",
     popular: true,
     features: [
-      "Tat ca Explorer features",
+      "Tất cả Explorer features",
       "AI Concierge 24/7",
-      "Group planning (10 nguoi)",
-      "Plan B cho moi activity",
-      "Unlimited chinh sua",
+      "Group planning (10 người)",
+      "Plan B cho mọi activity",
+      "Unlimited chỉnh sửa",
       "Priority booking",
     ],
-    cta: "Chon Premium",
+    cta: "Chọn Premium",
     href: "/itinerary",
   },
   {
@@ -53,13 +53,13 @@ const tiers = [
     period: "",
     popular: false,
     features: [
-      "Tat ca Premium features",
+      "Tất cả Premium features",
       "Human expert review",
       "Concierge call",
       "Emergency support",
-      "Group lon, honeymoon, gia dinh",
+      "Group lớn, honeymoon, gia đình",
     ],
-    cta: "Lien he",
+    cta: "Liên hệ",
     href: "/itinerary",
   },
 ];
@@ -68,9 +68,9 @@ export default function PricingPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">
       <div className="text-center mb-12">
-        <h1 className="text-3xl font-bold mb-2">Bang gia TravelMind</h1>
+        <h1 className="text-3xl font-bold mb-2">Bảng giá TravelMind</h1>
         <p className="text-gray-500">
-          Chon goi phu hop — tu mien phi den VIP
+          Chọn gói phù hợp — từ miễn phí đến VIP
         </p>
       </div>
 
@@ -86,7 +86,7 @@ export default function PricingPage() {
           >
             {tier.popular && (
               <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-sky-500 text-white text-xs font-bold px-3 py-1 rounded-full">
-                Pho bien
+                Phổ biến
               </div>
             )}
             <h3 className="text-xl font-bold">{tier.name}</h3>
@@ -117,7 +117,7 @@ export default function PricingPage() {
       </div>
 
       <div className="mt-12 text-center text-gray-400 text-sm">
-        + Revenue tu booking commission: 5-15% moi booking qua app
+        + Revenue từ booking commission: 5-15% mỗi booking qua app
       </div>
     </div>
   );

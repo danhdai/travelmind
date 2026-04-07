@@ -87,7 +87,7 @@ export default function ItineraryDetailPage() {
   if (!data) {
     return (
       <div className="text-center py-32">
-        <p className="text-gray-500">Khong tim thay lich trinh</p>
+        <p className="text-gray-500">Không tìm thấy lịch trình</p>
       </div>
     );
   }
@@ -139,7 +139,7 @@ export default function ItineraryDetailPage() {
 
       {/* Budget Breakdown */}
       <div className="bg-sky-50 rounded-2xl p-6 mb-8">
-        <h2 className="font-semibold mb-3">Tong chi phi: {data.total_cost?.toLocaleString()} VND</h2>
+        <h2 className="font-semibold mb-3">Tổng chi phí: {data.total_cost?.toLocaleString()} VND</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {data.budget_breakdown && Object.entries(data.budget_breakdown).map(([key, val]) => (
             <div key={key} className="text-center">
@@ -175,13 +175,13 @@ export default function ItineraryDetailPage() {
           <div key={day.day} className="border border-gray-100 rounded-2xl overflow-hidden">
             <div className="bg-sky-600 text-white px-6 py-4">
               <h3 className="text-xl font-bold">{day.title}</h3>
-              <p className="text-sky-100 text-sm">Chi phi ngay: ~{day.day_cost?.toLocaleString()} VND</p>
+              <p className="text-sky-100 text-sm">Chi phí ngày: ~{day.day_cost?.toLocaleString()} VND</p>
             </div>
 
             <div className="p-6 space-y-4">
               {/* Activities */}
               <div>
-                <h4 className="font-semibold text-gray-700 mb-3">Hoat dong</h4>
+                <h4 className="font-semibold text-gray-700 mb-3">Hoạt động</h4>
                 <div className="space-y-3">
                   {day.activities?.map((act, i) => (
                     <div key={i} className="flex gap-4 p-3 bg-gray-50 rounded-xl">
@@ -207,7 +207,7 @@ export default function ItineraryDetailPage() {
 
               {/* Meals */}
               <div>
-                <h4 className="font-semibold text-gray-700 mb-3">An uong</h4>
+                <h4 className="font-semibold text-gray-700 mb-3">Ăn uống</h4>
                 <div className="grid grid-cols-3 gap-3">
                   {day.meals?.map((meal, i) => (
                     <div key={i} className="p-3 bg-orange-50 rounded-xl text-center">
@@ -240,7 +240,7 @@ export default function ItineraryDetailPage() {
 
       {/* Reviews for key places */}
       <div className="mt-8">
-        <h3 className="text-xl font-bold mb-4">Reviews dia diem</h3>
+        <h3 className="text-xl font-bold mb-4">Reviews địa điểm</h3>
         <div className="space-y-3">
           <ReviewSummary placeId="phong_nha_cave" />
           <ReviewSummary placeId="paradise_cave" />
@@ -253,7 +253,7 @@ export default function ItineraryDetailPage() {
       {/* Tips */}
       {data.tips && data.tips.length > 0 && (
         <div className="mt-8 bg-yellow-50 rounded-2xl p-6">
-          <h3 className="font-semibold mb-3">Meo hay</h3>
+          <h3 className="font-semibold mb-3">Mẹo hay</h3>
           <ul className="space-y-1">
             {data.tips.map((tip, i) => (
               <li key={i} className="text-sm text-gray-700">• {tip}</li>

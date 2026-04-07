@@ -32,7 +32,7 @@ export default function ReviewsPage() {
         <div className="text-4xl mb-3">🔍</div>
         <h1 className="text-3xl font-bold mb-2">Review Explorer</h1>
         <p className="text-gray-500">
-          Review that tu nguoi di that — Quang Binh
+          Review thật từ người đi thật — Quảng Bình
         </p>
       </div>
 
@@ -80,7 +80,7 @@ export default function ReviewsPage() {
                     href={`/reviews/${place.place_id}`}
                     className="inline-block text-sm text-sky-600 hover:underline"
                   >
-                    Xem tat ca reviews →
+                    Xem tất cả reviews →
                   </Link>
                 </div>
               )}

@@ -66,7 +66,7 @@ export default function ReviewSummary({ placeId }: { placeId: string }) {
 
       {data.top_activities.length > 0 && (
         <div className="text-xs text-gray-500">
-          Hoat dong: {data.top_activities.join(", ")}
+          Hoạt động: {data.top_activities.join(", ")}
         </div>
       )}
 
@@ -76,11 +76,11 @@ export default function ReviewSummary({ placeId }: { placeId: string }) {
         </span>
         {data.price_range && (
           <span className="text-gray-500">
-            Gia: {data.price_range.min.toLocaleString()}-{data.price_range.max.toLocaleString()} VND
+            Giá: {data.price_range.min.toLocaleString()}-{data.price_range.max.toLocaleString()} VND
           </span>
         )}
         {data.best_time && (
-          <span className="text-gray-500">Thoi diem: {data.best_time}</span>
+          <span className="text-gray-500">Thời điểm: {data.best_time}</span>
         )}
       </div>
     </div>
