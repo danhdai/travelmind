@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { API_BASE } from "@/lib/config";
 
 interface ReviewSummaryData {
   place_id: string;
@@ -15,8 +16,6 @@ interface ReviewSummaryData {
   price_range: { min: number; max: number } | null;
   total_reviews: number;
 }
-
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 export default function ReviewSummary({ placeId }: { placeId: string }) {
   const [data, setData] = useState<ReviewSummaryData | null>(null);

@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import { useAuth } from "@/lib/auth";
 import { useToast } from "@/lib/toast";
 import Link from "next/link";
+import { API_BASE } from "@/lib/config";
 
 interface Place {
   id: string;
@@ -26,8 +27,6 @@ interface GroupData {
   places: Place[];
   status: string;
 }
-
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 export default function GroupPage() {
   const params = useParams();

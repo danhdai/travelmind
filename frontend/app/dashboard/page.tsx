@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useAuth } from "@/lib/auth";
+import { API_BASE } from "@/lib/config";
 
 interface ItinerarySummary {
   id: number;
@@ -19,8 +20,6 @@ interface DashboardData {
   created: ItinerarySummary[];
   saved: ItinerarySummary[];
 }
-
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 export default function DashboardPage() {
   const { user, loading: authLoading } = useAuth();

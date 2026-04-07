@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import ReviewSummary from "@/components/ReviewSummary";
+import { API_BASE } from "@/lib/config";
 
 interface Place {
   place_id: string;
@@ -11,8 +12,6 @@ interface Place {
   avg_rating: number;
   avg_trust_score: number;
 }
-
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 export default function ReviewsPage() {
   const [places, setPlaces] = useState<Place[]>([]);

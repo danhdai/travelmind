@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { API_BASE } from "@/lib/config";
 
 interface Message {
   role: "user" | "assistant";
@@ -12,8 +13,6 @@ interface ChatResponse {
   suggestions: string[];
   related_places: string[];
 }
-
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 export default function ChatPage() {
   const [messages, setMessages] = useState<Message[]>([]);

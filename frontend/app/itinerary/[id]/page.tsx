@@ -7,6 +7,7 @@ import { useAuth } from "@/lib/auth";
 import ReviewSummary from "@/components/ReviewSummary";
 import BookingButtons from "@/components/BookingButtons";
 import dynamic from "next/dynamic";
+import { API_BASE } from "@/lib/config";
 
 const ItineraryMap = dynamic(() => import("@/components/ItineraryMap"), { ssr: false });
 
@@ -44,8 +45,6 @@ interface ItineraryData {
   budget_breakdown: Record<string, number>;
   tips: string[];
 }
-
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 export default function ItineraryDetailPage() {
   const params = useParams();

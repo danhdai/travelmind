@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback } from "react";
 import { useParams } from "next/navigation";
 import ReviewSummary from "@/components/ReviewSummary";
 import SubmitReview from "@/components/SubmitReview";
+import { API_BASE } from "@/lib/config";
 
 interface ReviewDetail {
   id: number;
@@ -23,8 +24,6 @@ interface AnalysisData {
   total_analyzed: number;
   analysis: ReviewDetail[];
 }
-
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 export default function PlaceReviewsPage() {
   const params = useParams();

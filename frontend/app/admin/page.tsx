@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { API_BASE } from "@/lib/config";
 
 interface Stats {
   overview: {
@@ -14,8 +15,6 @@ interface Stats {
   top_destinations: Array<{ destination: string; count: number }>;
   review_stats: Array<{ place: string; reviews: number; avg_rating: number; avg_trust: number }>;
 }
-
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 export default function AdminPage() {
   const [stats, setStats] = useState<Stats | null>(null);

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
+import { API_BASE } from "@/lib/config";
 
 interface SearchResult {
   type: "destination" | "place";
@@ -11,8 +12,6 @@ interface SearchResult {
   rating?: number;
   matches?: number;
 }
-
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 export default function SearchBar({ onClose }: { onClose: () => void }) {
   const [query, setQuery] = useState("");

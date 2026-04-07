@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { API_BASE } from "@/lib/config";
 
 interface Place {
   place_id: string;
@@ -10,8 +11,6 @@ interface Place {
   avg_rating: number;
   avg_trust_score: number;
 }
-
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 const DESTINATIONS = [
   { slug: "quang-binh", name: "Quảng Bình", emoji: "🏔", tag: "Hang động kỳ vĩ", gradient: "from-emerald-500 to-teal-600", budget: "2-4tr", time: "T4-8" },
