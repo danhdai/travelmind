@@ -206,41 +206,41 @@ def detect_fake_signals(text: str, rating: float, author_name: str = "") -> Dict
 
     # Too short
     if len(text) < 20:
-        reasons.append("Review qua ngan")
+        reasons.append("Review quá ngắn")
         score += 0.3
 
     # All caps
     upper_ratio = sum(1 for c in text if c.isupper()) / max(len(text), 1)
     if upper_ratio > 0.5 and len(text) > 10:
-        reasons.append("Nhieu chu in hoa bat thuong")
+        reasons.append("Nhiều chữ in hoa bất thường")
         score += 0.2
 
     # Excessive punctuation
     excl_count = text.count("!") + text.count("?")
     if excl_count > 5:
-        reasons.append("Qua nhieu dau cham than")
+        reasons.append("Quá nhiều dấu chấm than")
         score += 0.15
 
     # Generic text (no specific details)
     entities = extract_entities(text)
     if not entities["prices"] and not entities["places"] and not entities["activities"]:
         if len(text) < 50:
-            reasons.append("Thieu chi tiet cu the (gia, dia diem, hoat dong)")
+            reasons.append("Thiếu chi tiết cụ thể (giá, địa điểm, hoạt động)")
             score += 0.25
 
     # Extreme rating with short text
     if rating in (1, 5) and len(text) < 30:
-        reasons.append("Rating cuc doan voi review ngan")
+        reasons.append("Rating cực đoan với review ngắn")
         score += 0.2
 
     # Repeated characters
     if re.search(r"(.)\1{4,}", text):
-        reasons.append("Ky tu lap lai nhieu")
+        reasons.append("Ký tự lặp lại nhiều")
         score += 0.2
 
     # URL/link spam
     if re.search(r"https?://|www\.", text):
-        reasons.append("Chua link/URL")
+        reasons.append("Chứa link/URL")
         score += 0.15
 
     return {
@@ -332,7 +332,7 @@ def generate_review_summary(reviews: List[Dict]) -> Dict:
         }
     """
     if not reviews:
-        return {"summary": "Chua co review", "highlights": [], "concerns": []}
+        return {"summary": "Chưa có review", "highlights": [], "concerns": []}
 
     all_positive = []
     all_negative = []
@@ -370,13 +370,13 @@ def generate_review_summary(reviews: List[Dict]) -> Dict:
     concerns = [word for word, count in neg_freq[:3] if count >= 2]
     top_activities = [act for act, count in act_freq[:5]]
 
-    summary = f"{pos_pct}% review tich cuc, {neg_pct}% tieu cuc (tu {total} reviews). "
-    summary += f"Rating trung binh: {avg_rating:.1f}/5. "
+    summary = f"{pos_pct}% review tích cực, {neg_pct}% tiêu cực (từ {total} reviews). "
+    summary += f"Rating trung bình: {avg_rating:.1f}/5. "
 
     if highlights:
-        summary += f"Diem noi bat: {', '.join(highlights[:3])}. "
+        summary += f"Điểm nổi bật: {', '.join(highlights[:3])}. "
     if concerns:
-        summary += f"Can luu y: {', '.join(concerns[:2])}. "
+        summary += f"Cần lưu ý: {', '.join(concerns[:2])}. "
 
     best_time = None
     if all_times:

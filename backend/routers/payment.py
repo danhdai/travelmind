@@ -36,7 +36,7 @@ async def create_payment_session(req: PaymentRequest):
     # TODO: Integrate Stripe/VNPay when API keys are configured
     return PaymentResponse(
         checkout_url=f"/payment/mock?tier={req.tier}&email={req.email}",
-        message=f"Thanh toan {tier_info['name']}: {tier_info['price']:,} VND (mock - chua ket noi payment gateway)"
+        message=f"Thanh toan {tier_info['name']}: {tier_info['price']:,} VND (mock - chưa kết nối payment gateway)"
     )
 
 

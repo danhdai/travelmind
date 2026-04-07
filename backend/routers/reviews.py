@@ -220,7 +220,7 @@ def submit_review(
 
     return {
         "id": review.id,
-        "message": "Review da duoc gui! Cam on ban.",
+        "message": "Review đã được gửi! Cảm ơn bạn.",
         "sentiment": sentiment,
         "trust_score": trust["trust_score"],
     }

@@ -58,7 +58,7 @@ def save_travel_dna(req: ProfileRequest, db: Session = Depends(get_db), auth_ema
         email=user.email,
         name=user.name,
         travel_dna=user.travel_dna,
-        message="Travel DNA da luu!"
+        message="Travel DNA đã lưu!"
     )
 
 

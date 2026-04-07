@@ -135,7 +135,7 @@ def save_itinerary(itinerary_id: int, email: str = Depends(require_auth), db: Se
         flag_modified(user, "saved_itineraries")
         db.commit()
 
-    return {"message": "Da luu!", "saved": saved}
+    return {"message": "Đã lưu!", "saved": saved}
 
 
 @router.delete("/save-itinerary/{itinerary_id}")
@@ -152,7 +152,7 @@ def unsave_itinerary(itinerary_id: int, email: str = Depends(require_auth), db: 
         flag_modified(user, "saved_itineraries")
         db.commit()
 
-    return {"message": "Da xoa!", "saved": saved}
+    return {"message": "Đã xóa!", "saved": saved}
 
 
 @router.get("/my-itineraries")
